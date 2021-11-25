@@ -1,0 +1,28 @@
+{
+  "name": "sketch-rooms-vr",
+  "description": "Recreating Avery Mikolic-O'Rourke's Sketch Rooms VR art installation in a webVR platform.",
+  "version": "0.1.0",
+  "main": "index.html",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server --port=8020"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tristan-orourke/sketch-rooms-vr.git"
+  },
+  "keywords": [
+    "vr",
+    "art",
+    "experience"
+  ],
+  "author": "tristan-orourke",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/tristan-orourke/sketch-rooms-vr/issues"
+  },
+  "homepage": "https://github.com/tristan-orourke/sketch-rooms-vr#readme"
+}
