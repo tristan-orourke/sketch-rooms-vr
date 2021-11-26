@@ -9,14 +9,15 @@ AFRAME.registerComponent('regular-polygon-side', {
     const data = this.data;
     const el = this.el;
 
-    // Geometry or room properties changed - update position and rotation.
+    // If any properties changed (including initial run) - update position and rotation.
     if (data.width !== oldData?.width ||
       data.sides !== oldData?.sides || 
       data.index !== oldData?.index) {
       const apothem = this.calculateApothen(data.sides, data.width);
-      el.object3D.rotation.set(0, 0, 0);
-      el.object3D.position.x = 0;
-      el.object3D.position.z = -apothem;
+      const rotation = this.calculateRotation(data.index, data.sides);
+      const position = this.calculatePosition(data.index, data.sides, apothem);
+      el.object3D.rotation.set(...rotation);
+      el.object3D.position.set(...position);
     }
   },
   calculateApothen: function (numberOfSides, lengthOfSide) {
@@ -24,5 +25,13 @@ AFRAME.registerComponent('regular-polygon-side', {
   },
   calculateOuterRadius: function (numberOfSides, lengthOfSide) {
     return lengthOfSide / (2 * Math.sin(Math.PI / numberOfSides));
+  },
+  calculatePosition: function (i, numberOfSides, apothem) {
+    const angle = i * 2 * Math.PI / numberOfSides;
+    return [Math.sin(angle)*apothem, 0, Math.cos(angle)*apothem];
+  },
+  calculateRotation: function (i, numberOfSides) {
+    const angle = i * 2 * Math.PI / numberOfSides;
+    return [0, angle, 0];
   }
 });
