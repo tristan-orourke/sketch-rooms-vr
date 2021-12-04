@@ -85,6 +85,8 @@
           src="#hallway-2"
           regular-polygon-side="width: 8.5; sides: 6; index: 1"
           mixin="panel"
+          teleport-on-click="from: #hallway; to: #kitchen"
+          class="clickable active"
         ></a-image>
         <a-image
           class="clickable active"
@@ -114,7 +116,7 @@
         ></a-image>
       </a-entity>
 
-      <a-entity id="kitchen" position="0 2 0" visible="false">
+      <a-entity id="kitchen" position="0 2 0" visible="false" rotation="0 1 0">
         <!-- 6 kitchen panels -->
         <a-image
           id="kitchen-panel-1"
@@ -141,6 +143,8 @@
           src="#kitchen-4"
           regular-polygon-side="width: 8.5; sides: 6; index: 3"
           mixin="panel"
+          teleport-on-click="from: #kitchen; to: #hallway"
+          class="clickable"
         ></a-image>
         <a-image
           id="kitchen-panel-5"
