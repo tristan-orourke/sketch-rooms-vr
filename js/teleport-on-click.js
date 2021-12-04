@@ -28,7 +28,7 @@ AFRAME.registerComponent('teleport-on-click', {
       }
 
       // Start the fade-out
-      document.querySelector("#curtain").emit("teleport", this.data, true);
+      document.querySelector("#cursor").emit("teleport", this.data, true);
       
       // Replace objects when curtain is up
       setTimeout(function switchObjs() {

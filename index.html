@@ -33,7 +33,6 @@
         <img id="kitchen-6" src="/assets/kitchen/6.png" />
 
         <a-mixin id="panel" geometry="height: 11; width: 8.5"></a-mixin>
-        <a-mixin id="clickable"></a-mixin>
 
         <a-mixin
           id="teleportable"
@@ -92,7 +91,7 @@
           id="hallway-panel-3"
           src="#hallway-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
-          mixin="panel clickable"
+          mixin="panel"
           teleport-on-click="from: #hallway; to: #kitchen"
         ></a-image>
         <a-image
@@ -122,7 +121,6 @@
           src="#kitchen-1"
           regular-polygon-side="width: 8.5; sides: 6; index: 0"
           mixin="panel"
-          class="clickable"
         ></a-image>
         <a-image
           id="kitchen-panel-2"
@@ -134,7 +132,7 @@
           id="kitchen-panel-3"
           src="#kitchen-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
-          mixin="panel clickable"
+          mixin="panel"
           teleport-on-click="from: #kitchen; to: #hallway"
           class="clickable"
         ></a-image>
@@ -159,23 +157,24 @@
       </a-entity>
 
       <a-entity camera look-controls>
-        <a-entity
-          id="cursor"
-          cursor
-          raycaster="objects: .clickable.active"
-          position="0 0 -1"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-          material="color: black; shader: flat"
-          mixin="color-cursor"
-        >
-        </a-entity>
         <a-sphere
           id="curtain"
-          material="color: black; shader: flat; side: back; opacity: 0"
+          material="color: black; side: back; opacity: 0"
           radius="1.1"
           animation__teleport-out="property: material.opacity; from: 0; to: 1; dur: 450; startEvents: teleport"
           animation__teleport-in="property: material.opacity; from: 1; to: 0; dur: 450; delay: 550; startEvents: teleport"
-        ></a-sphere>
+        >
+          <a-entity
+            id="cursor"
+            cursor
+            raycaster="objects: .clickable.active"
+            position="0 0 -1"
+            geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+            material="color: black; shader: flat"
+            mixin="color-cursor"
+          >
+          </a-entity>
+        </a-sphere>
       </a-entity>
     </a-scene>
   </body>
