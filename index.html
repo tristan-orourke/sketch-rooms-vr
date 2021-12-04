@@ -13,6 +13,7 @@
     <script src="js/play-on-click.js"></script>
     <script src="js/hide-on-play.js"></script>
     <script src="js/regular-polygon-side.js"></script>
+    <script src="js/teleport-on-click.js"></script>
   </head>
   <body>
     <a-scene background="color: black">
@@ -34,6 +35,19 @@
         <a-mixin id="panel" geometry="height: 11; width: 8.5"></a-mixin>
         <a-mixin id="clickable"></a-mixin>
 
+        <a-mixin
+          id="teleportable"
+          animation__appear="property: material.opacity; from: 0; to: 1; dur: 500; startEvents: appear"
+          animation__disappear="property: material.opacity; from: 1; to: 0; dur: 500; delay: 500; startEvents: disappear"
+        ></a-mixin>
+
+        <a-mixin
+          id="curtain"
+          animation__appear="property: material.opacity; from: 0; to: 1; dur: 450; startEvents: teleport"
+          animation__disappear="property: material.opacity; from: 1; to: 0; dur: 450; delay: 550; startEvents: teleport"
+        >
+        </a-mixin>
+
         <!-- For a cursor which shrinks to nothing when not looking at a clickable object. (Not sure why color animation not working.) -->
         <a-mixin
           id="vanishing-cursor"
@@ -53,8 +67,6 @@
           animation__clickstart="property: scale; startEvents: click; easing: easeOutQuad; to: 1.1 1.1 1.1; dur: 100"
           animation__clickend="property: scale; startEvents: click; easing: easeInQuad; from: 1.1 1.1 1.1; to: 1 1 1; dur: 100; delay: 100"
         ></a-mixin>
-
-
       </a-assets>
 
       <!-- Floor and Ceiling -->
@@ -81,6 +93,7 @@
           src="#hallway-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
           mixin="panel clickable"
+          teleport-on-click="from: #hallway; to: #kitchen"
         ></a-image>
         <a-image
           id="hallway-panel-4"
@@ -121,7 +134,9 @@
           id="kitchen-panel-3"
           src="#kitchen-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
-          mixin="panel"
+          mixin="panel clickable"
+          teleport-on-click="from: #kitchen; to: #hallway"
+          class="clickable"
         ></a-image>
         <a-image
           id="kitchen-panel-4"
@@ -154,6 +169,13 @@
           mixin="color-cursor"
         >
         </a-entity>
+        <a-sphere
+          id="curtain"
+          material="color: black; shader: flat; side: back; opacity: 0"
+          radius="1.1"
+          animation__teleport-out="property: material.opacity; from: 0; to: 1; dur: 450; startEvents: teleport"
+          animation__teleport-in="property: material.opacity; from: 1; to: 0; dur: 450; delay: 550; startEvents: teleport"
+        ></a-sphere>
       </a-entity>
     </a-scene>
   </body>
