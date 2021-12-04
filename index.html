@@ -32,15 +32,35 @@
         <img id="kitchen-6" src="/assets/kitchen/6.png" />
 
         <a-mixin id="panel" geometry="height: 11; width: 8.5"></a-mixin>
+        <a-mixin id="clickable"></a-mixin>
+
+        <!-- For a cursor which shrinks to nothing when not looking at a clickable object. (Not sure why color animation not working.) -->
         <a-mixin
-          id="clickable"
+          id="vanishing-cursor"
+          scale="0 0 0"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: black; shader: flat"
+          animation__mouseenter="property: scale; easing: easeOutQuad; startEvents: mouseenter; to: 1 1 1; dur: 1000"
+          animation__mouseleave="property: scale; easing: easeOutQuad; startEvents: mouseleave; to: 0 0 0; dur: 1000"
+          animation__clickstart="property: material.color; type: color; startEvents: click; to: green; dur: 100"
+          animation__clickend="property: material.color; type: color; startEvents: click; to: black; dur: 100; delay: 100"
         ></a-mixin>
+        <!-- For a cursor which changes color when looking at a clickable object -->
+        <a-mixin
+          id="color-cursor"
+          event-set__mouseenter="material.color: green;"
+          event-set__mouseleave="material.color: black;"
+          animation__clickstart="property: scale; startEvents: click; easing: easeOutQuad; to: 1.1 1.1 1.1; dur: 100"
+          animation__clickend="property: scale; startEvents: click; easing: easeInQuad; from: 1.1 1.1 1.1; to: 1 1 1; dur: 100; delay: 100"
+        ></a-mixin>
+
+
       </a-assets>
 
       <!-- Floor and Ceiling -->
       <!-- <a-plane color="#FFFFFF" rotation="-90 0 0" height="100" width="100"></a-plane> -->
       <!-- <a-plane color="#FFFFFF" position="0 3 0" rotation="90 0 0" height="100" width="100"></a-plane> -->
-      
+
       <a-entity id="hallway" position="0 2 0" visible="true">
         <!-- 6 hallway panels -->
         <a-image
@@ -56,15 +76,13 @@
           mixin="panel"
         ></a-image>
         <a-image
-          class="clickable"
+          class="clickable active"
           id="hallway-panel-3"
           src="#hallway-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
           mixin="panel clickable"
         ></a-image>
         <a-image
-        
-        class="clickable"
           id="hallway-panel-4"
           src="#hallway-4"
           regular-polygon-side="width: 8.5; sides: 6; index: 3"
@@ -84,13 +102,14 @@
         ></a-image>
       </a-entity>
 
-      <a-entity id="kitchen" position="15 2 15" visible="false">
+      <a-entity id="kitchen" position="0 2 0" visible="false">
         <!-- 6 kitchen panels -->
         <a-image
           id="kitchen-panel-1"
           src="#kitchen-1"
           regular-polygon-side="width: 8.5; sides: 6; index: 0"
           mixin="panel"
+          class="clickable"
         ></a-image>
         <a-image
           id="kitchen-panel-2"
@@ -125,29 +144,14 @@
       </a-entity>
 
       <a-entity camera look-controls>
-        <!-- A cursor which shrinks to nothing when not looking at a clickable object -->
-        <!-- <a-entity
-          id="cursor"
-          cursor
-          raycaster="objects: .clickable"
-          position="0 0 -1"
-          scale="0 0 0"
-          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-          material="color: black; shader: flat"
-          animation__mouseenter="property: scale; easing: easeOutQuad; startEvents: mouseenter; to: 1 1 1; dur: 1000"
-          animation__mouseleave="property: scale; easing: easeOutQuad; startEvents: mouseleave; to: 0 0 0; dur: 1000"
-        > 
-        </a-entity> -->
-        <!-- A cursor which changes color when looking at a clickable object -->
         <a-entity
           id="cursor"
           cursor
-          raycaster="objects: .clickable"
+          raycaster="objects: .clickable.active"
           position="0 0 -1"
           geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
           material="color: black; shader: flat"
-          event-set__mouseenter="material.color: green;"
-          event-set__mouseleave="material.color: black;"
+          mixin="color-cursor"
         >
         </a-entity>
       </a-entity>
