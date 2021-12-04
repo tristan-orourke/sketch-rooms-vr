@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Sketch Rooms</title>
-    <meta name="description" content="A recreation of Amery Mikolic-O'Rourke's Sketch Rooms VR art installation">
+    <meta
+      name="description"
+      content="A recreation of Amery Mikolic-O'Rourke's Sketch Rooms VR art installation"
+    />
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+
     <script src="js/play-on-click.js"></script>
     <script src="js/hide-on-play.js"></script>
     <script src="js/regular-polygon-side.js"></script>
@@ -12,29 +17,140 @@
   <body>
     <a-scene background="color: black">
       <a-assets>
-        <img id="hallway-1" src="/assets/hallway/1.png">
-        <img id="hallway-2" src="/assets/hallway/2.png">
-        <img id="hallway-3" src="/assets/hallway/3.png">
-        <img id="hallway-4" src="/assets/hallway/4.png">
-        <img id="hallway-5" src="/assets/hallway/5.png">
-        <img id="hallway-6" src="/assets/hallway/6.png">
+        <img id="hallway-1" src="/assets/hallway/1.png" />
+        <img id="hallway-2" src="/assets/hallway/2.png" />
+        <img id="hallway-3" src="/assets/hallway/3.png" />
+        <img id="hallway-4" src="/assets/hallway/4.png" />
+        <img id="hallway-5" src="/assets/hallway/5.png" />
+        <img id="hallway-6" src="/assets/hallway/6.png" />
+
+        <img id="kitchen-1" src="/assets/kitchen/1.png" />
+        <img id="kitchen-2" src="/assets/kitchen/2.png" />
+        <img id="kitchen-3" src="/assets/kitchen/3.png" />
+        <img id="kitchen-4" src="/assets/kitchen/4.png" />
+        <img id="kitchen-5" src="/assets/kitchen/5.png" />
+        <img id="kitchen-6" src="/assets/kitchen/6.png" />
+
         <a-mixin id="panel" geometry="height: 11; width: 8.5"></a-mixin>
+        <a-mixin
+          id="clickable"
+        ></a-mixin>
       </a-assets>
-      
+
       <!-- Floor and Ceiling -->
       <!-- <a-plane color="#FFFFFF" rotation="-90 0 0" height="100" width="100"></a-plane> -->
       <!-- <a-plane color="#FFFFFF" position="0 3 0" rotation="90 0 0" height="100" width="100"></a-plane> -->
       
-      <a-entity id="hallway" position="0 2 0">
+      <a-entity id="hallway" position="0 2 0" visible="true">
         <!-- 6 hallway panels -->
-        <a-image id="hallway-panel-1" src="#hallway-1" regular-polygon-side="width: 8.5; sides: 6; index: 0" mixin="panel"></a-image>
-        <a-image id="hallway-panel-2" src="#hallway-2" regular-polygon-side="width: 8.5; sides: 6; index: 1" mixin="panel"></a-image>
-        <a-image id="hallway-panel-3" src="#hallway-3" regular-polygon-side="width: 8.5; sides: 6; index: 2" mixin="panel"></a-image>
-        <a-image id="hallway-panel-4" src="#hallway-4" regular-polygon-side="width: 8.5; sides: 6; index: 3" mixin="panel"></a-image>
-        <a-image id="hallway-panel-5" src="#hallway-5" regular-polygon-side="width: 8.5; sides: 6; index: 4" mixin="panel"></a-image>
-        <a-image id="hallway-panel-6" src="#hallway-6" regular-polygon-side="width: 8.5; sides: 6; index: 5" mixin="panel"></a-image>
+        <a-image
+          id="hallway-panel-1"
+          src="#hallway-1"
+          regular-polygon-side="width: 8.5; sides: 6; index: 0"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="hallway-panel-2"
+          src="#hallway-2"
+          regular-polygon-side="width: 8.5; sides: 6; index: 1"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          class="clickable"
+          id="hallway-panel-3"
+          src="#hallway-3"
+          regular-polygon-side="width: 8.5; sides: 6; index: 2"
+          mixin="panel clickable"
+        ></a-image>
+        <a-image
+        
+        class="clickable"
+          id="hallway-panel-4"
+          src="#hallway-4"
+          regular-polygon-side="width: 8.5; sides: 6; index: 3"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="hallway-panel-5"
+          src="#hallway-5"
+          regular-polygon-side="width: 8.5; sides: 6; index: 4"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="hallway-panel-6"
+          src="#hallway-6"
+          regular-polygon-side="width: 8.5; sides: 6; index: 5"
+          mixin="panel"
+        ></a-image>
       </a-entity>
 
+      <a-entity id="kitchen" position="15 2 15" visible="false">
+        <!-- 6 kitchen panels -->
+        <a-image
+          id="kitchen-panel-1"
+          src="#kitchen-1"
+          regular-polygon-side="width: 8.5; sides: 6; index: 0"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="kitchen-panel-2"
+          src="#kitchen-2"
+          regular-polygon-side="width: 8.5; sides: 6; index: 1"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="kitchen-panel-3"
+          src="#kitchen-3"
+          regular-polygon-side="width: 8.5; sides: 6; index: 2"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="kitchen-panel-4"
+          src="#kitchen-4"
+          regular-polygon-side="width: 8.5; sides: 6; index: 3"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="kitchen-panel-5"
+          src="#kitchen-5"
+          regular-polygon-side="width: 8.5; sides: 6; index: 4"
+          mixin="panel"
+        ></a-image>
+        <a-image
+          id="kitchen-panel-6"
+          src="#kitchen-6"
+          regular-polygon-side="width: 8.5; sides: 6; index: 5"
+          mixin="panel"
+        ></a-image>
+      </a-entity>
+
+      <a-entity camera look-controls>
+        <!-- A cursor which shrinks to nothing when not looking at a clickable object -->
+        <!-- <a-entity
+          id="cursor"
+          cursor
+          raycaster="objects: .clickable"
+          position="0 0 -1"
+          scale="0 0 0"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: black; shader: flat"
+          animation__mouseenter="property: scale; easing: easeOutQuad; startEvents: mouseenter; to: 1 1 1; dur: 1000"
+          animation__mouseleave="property: scale; easing: easeOutQuad; startEvents: mouseleave; to: 0 0 0; dur: 1000"
+        > 
+        </a-entity> -->
+        <!-- A cursor which changes color when looking at a clickable object -->
+        <a-entity
+          id="cursor"
+          cursor
+          raycaster="objects: .clickable"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: black; shader: flat"
+          event-set__mouseenter="material.color: green;"
+          event-set__mouseleave="material.color: black;"
+        >
+        </a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
