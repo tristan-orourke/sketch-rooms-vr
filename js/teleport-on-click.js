@@ -3,13 +3,6 @@ AFRAME.registerComponent('teleport-on-click', {
     from: { type: 'selector' },
     to: { type: 'selector' }
   },
-  init: function () {
-    document.querySelector('#curtain').addEventListener('teleport', function logTeleport(event) {
-      console.log('teleport registered');
-      // document.querySelector('#curtain').material.opacity =0.5;
-      
-    });
-  },
   events: {
     click: function () {
       const from = this.data.from;
