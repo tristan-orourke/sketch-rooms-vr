@@ -475,8 +475,7 @@
           id="curtain"
           material="color: black; side: back; opacity: 0"
           radius="1.1"
-          animation__teleport-out="property: material.opacity; from: 0; to: 1; dur: 450; startEvents: teleport"
-          animation__teleport-in="property: material.opacity; from: 1; to: 0; dur: 450; delay: 550; startEvents: teleport"
+          animation__fade-in-out="property: material.opacity; from: 0; to: 1; dur: 500; startEvents: teleport; loop: 1; dir: alternate"
         >
           <a-entity
             id="cursor"
