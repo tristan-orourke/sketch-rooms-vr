@@ -70,6 +70,33 @@
         <img id="tays-room-7" src="assets/tays-room/7.png" />
         <img id="tays-room-8" src="assets/tays-room/8.png" />
 
+        <img id="ingo-living-room-1" src="assets/ingo-living-room/ingo_livingroom_1.jpg" />
+        <img id="ingo-living-room-2" src="assets/ingo-living-room/ingo_livingroom_2.jpg" />
+        <img id="ingo-living-room-3" src="assets/ingo-living-room/ingo_livingroom_3.jpg" />
+        <img id="ingo-living-room-4" src="assets/ingo-living-room/ingo_livingroom_4.jpg" />
+        <img id="ingo-living-room-5" src="assets/ingo-living-room/ingo_livingroom_5.jpg" />
+        <img id="ingo-living-room-6" src="assets/ingo-living-room/ingo_livingroom_6.jpg" />
+        <img id="ingo-living-room-7" src="assets/ingo-living-room/ingo_livingroom_7.jpg" />
+        <img id="ingo-living-room-8" src="assets/ingo-living-room/ingo_livingroom_8.jpg" />
+
+        <img id="ingo-kitchen-1" src="assets/ingo-kitchen/ingo_kitchen_1.jpg" />
+        <img id="ingo-kitchen-2" src="assets/ingo-kitchen/ingo_kitchen_2.jpg" />
+        <img id="ingo-kitchen-3" src="assets/ingo-kitchen/ingo_kitchen_3.jpg" />
+        <img id="ingo-kitchen-4" src="assets/ingo-kitchen/ingo_kitchen_4.jpg" />
+        <img id="ingo-kitchen-5" src="assets/ingo-kitchen/ingo_kitchen_5.jpg" />
+        <img id="ingo-kitchen-6" src="assets/ingo-kitchen/ingo_kitchen_6.jpg" />
+        <img id="ingo-kitchen-7" src="assets/ingo-kitchen/ingo_kitchen_7.jpg" />
+        <img id="ingo-kitchen-8" src="assets/ingo-kitchen/ingo_kitchen_8.jpg" />
+
+        <img id="porch-1" src="assets/porch/porch_1.jpg" />
+        <img id="porch-2" src="assets/porch/porch_2.jpg" />
+        <img id="porch-3" src="assets/porch/porch_3.jpg" />
+        <img id="porch-4" src="assets/porch/porch_4.jpg" />
+        <img id="porch-5" src="assets/porch/porch_5.jpg" />
+        <img id="porch-6" src="assets/porch/porch_6.jpg" />
+        <img id="porch-7" src="assets/porch/porch_7.jpg" />
+        <img id="porch-8" src="assets/porch/porch_8.jpg" />
+
         <a-mixin id="panel" geometry="height: 11; width: 8.5"></a-mixin>
 
         <a-mixin
@@ -236,7 +263,6 @@
           class="clickable active"
         ></a-image>
         <a-image
-          class="clickable active"
           id="hallway-panel-3"
           src="#hallway-3"
           regular-polygon-side="width: 8.5; sides: 6; index: 2"
@@ -256,6 +282,8 @@
           id="hallway-panel-5"
           src="#hallway-5"
           regular-polygon-side="width: 8.5; sides: 6; index: 4"
+          teleport-on-click="from: #hallway; to: #porch"
+          class="clickable active"
           mixin="panel"
         ></a-image>
         <a-image
@@ -464,6 +492,218 @@
         <a-image
           id="tays-room-panel-8"
           src="#tays-room-8"
+          regular-polygon-side="width: 8.5; sides: 8; index: 7"
+          mixin="panel"
+        >
+        </a-image>
+      </a-entity>
+
+      <!-- ingo living room -->
+      <a-entity
+        id="ingo-living-room"
+        position="0 2 0"
+        visible="false"
+        rotation="0 50 0"
+      >
+        <!-- 8 ingo living room panels -->
+        <a-image
+          id="ingo-living-room-panel-1"
+          src="#ingo-living-room-1"
+          regular-polygon-side="width: 8.5; sides: 8; index: 0"
+          mixin="panel"
+          class="clickable"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-2"
+          src="#ingo-living-room-2"
+          regular-polygon-side="width: 8.5; sides: 8; index: 1"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-3"
+          src="#ingo-living-room-3"
+          regular-polygon-side="width: 8.5; sides: 8; index: 2"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-4"
+          src="#ingo-living-room-4"
+          regular-polygon-side="width: 8.5; sides: 8; index: 3"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-5"
+          src="#ingo-living-room-5"
+          regular-polygon-side="width: 8.5; sides: 8; index: 4"
+          teleport-on-click="from: #ingo-living-room; to: #ingo-kitchen"
+          class="clickable"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-6"
+          src="#ingo-living-room-6"
+          regular-polygon-side="width: 8.5; sides: 8; index: 5"
+          teleport-on-click="from: #ingo-living-room; to: #porch"
+          class="clickable"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-7"
+          src="#ingo-living-room-7"
+          regular-polygon-side="width: 8.5; sides: 8; index: 6"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-living-room-panel-8"
+          src="#ingo-living-room-8"
+          regular-polygon-side="width: 8.5; sides: 8; index: 7"
+          mixin="panel"
+        >
+        </a-image>
+      </a-entity>
+
+      <!-- ingo kitchen -->
+      <a-entity
+        id="ingo-kitchen"
+        position="0 2 0"
+        visible="false"
+        rotation="0 230 0"
+      >
+        <!-- 8 ingo kitchen panels -->
+        <a-image
+          id="ingo-kitchen-panel-1"
+          src="#ingo-kitchen-1"
+          regular-polygon-side="width: 8.5; sides: 8; index: 0"
+          mixin="panel"
+          class="clickable"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-2"
+          src="#ingo-kitchen-2"
+          regular-polygon-side="width: 8.5; sides: 8; index: 1"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-3"
+          src="#ingo-kitchen-3"
+          regular-polygon-side="width: 8.5; sides: 8; index: 2"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-4"
+          src="#ingo-kitchen-4"
+          regular-polygon-side="width: 8.5; sides: 8; index: 3"
+          teleport-on-click="from: #ingo-kitchen; to: #porch"
+          class="clickable"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-5"
+          src="#ingo-kitchen-5"
+          regular-polygon-side="width: 8.5; sides: 8; index: 4"
+          teleport-on-click="from: #ingo-kitchen; to: #ingo-living-room"
+          class="clickable"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-6"
+          src="#ingo-kitchen-6"
+          regular-polygon-side="width: 8.5; sides: 8; index: 5"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-7"
+          src="#ingo-kitchen-7"
+          regular-polygon-side="width: 8.5; sides: 8; index: 6"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="ingo-kitchen-panel-8"
+          src="#ingo-kitchen-8"
+          regular-polygon-side="width: 8.5; sides: 8; index: 7"
+          mixin="panel"
+        >
+        </a-image>
+      </a-entity>
+
+      <!-- porch -->
+      <a-entity
+        id="porch"
+        position="0 2 0"
+        visible="false"
+        rotation="0 280 0"
+      >
+        <!-- 8 porch panels -->
+        <a-image
+          id="porch-panel-1"
+          src="#porch-1"
+          regular-polygon-side="width: 8.5; sides: 8; index: 0"
+          mixin="panel"
+          teleport-on-click="from: #porch; to: #hallway"
+          class="clickable"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-2"
+          src="#porch-2"
+          regular-polygon-side="width: 8.5; sides: 8; index: 1"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-3"
+          src="#porch-3"
+          regular-polygon-side="width: 8.5; sides: 8; index: 2"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-4"
+          src="#porch-4"
+          regular-polygon-side="width: 8.5; sides: 8; index: 3"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-5"
+          src="#porch-5"
+          regular-polygon-side="width: 8.5; sides: 8; index: 4"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-6"
+          src="#porch-6"
+          regular-polygon-side="width: 8.5; sides: 8; index: 5"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-7"
+          src="#porch-7"
+          regular-polygon-side="width: 8.5; sides: 8; index: 6"
+          teleport-on-click="from: #porch; to: #ingo-living-room"
+          class="clickable"
+          mixin="panel"
+        >
+        </a-image>
+        <a-image
+          id="porch-panel-8"
+          src="#porch-8"
           regular-polygon-side="width: 8.5; sides: 8; index: 7"
           mixin="panel"
         >
